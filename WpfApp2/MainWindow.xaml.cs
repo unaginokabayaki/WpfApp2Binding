@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp2.Model;
 
 namespace WpfApp2
 {
@@ -23,6 +24,10 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
+
+            //((MainViewModel)DataContext).Name = "init";
+            //if (DataContext is MainViewModel wnd)
+            //    wnd.Name = "Init";
         }
     }
 }
