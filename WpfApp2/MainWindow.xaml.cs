@@ -24,10 +24,9 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
-
-            //((MainViewModel)DataContext).Name = "init";
-            //if (DataContext is MainViewModel wnd)
-            //    wnd.Name = "Init";
+            
+            //DataContext = new MainViewModel();
         }
+
     }
 }

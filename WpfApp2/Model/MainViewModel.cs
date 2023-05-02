@@ -8,6 +8,6 @@ namespace WpfApp2.Model
 {
     internal class MainViewModel
     {
-        public string Name { get; set; };
+        public string Name { get; set; }
     }
 }
