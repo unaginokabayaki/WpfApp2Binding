@@ -5,14 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2.Model"
         mc:Ignorable="d"
+        FocusManager.FocusedElement="{Binding ElementName=InputTextBox}"
         Title="MainWindow" Height="450" Width="800">
     <!--<Window.DataContext>
         <local:MainViewModel />
     </Window.DataContext>-->
-    <Grid>
-        <StackPanel>
-            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="100"/>
-            <TextBlock Text="{Binding Name}" Height="30" Width="100"/>
+    <DockPanel>
+        <ToggleButton Content="Hide" 
+                      DockPanel.Dock="Top" 
+                      IsChecked="{Binding IsChecked, Mode=OneWayToSource}"
+                      />
+        <StackPanel Orientation="Horizontal" 
+                    DockPanel.Dock="Top" 
+                    Margin="10"
+                    Visibility="{Binding IsCheckVisiblity, Mode=OneWay}"
+                    >
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
+                     Height="25" Width="100" 
+                     x:Name="InputTextBox"
+                     />
+            <TextBlock Text="{Binding Name}" 
+                       Height="25" Width="100" 
+                       Background="LightGreen"
+                       />
         </StackPanel>
-    </Grid>
+        <!--ItemsSourceによって子要素のDataContextが置き換えられる-->
+        <ListBox ItemsSource="{Binding Items}"
+                 Padding="10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Id}" 
+                                   Width="10"
+                                   />
+                        <TextBox Text="{Binding ItemName}" 
+                                 Margin="5,0,0,0" 
+                                 Width="50"
+                                 />
+                        <ComboBox SelectedItem="{Binding Name}" 
+                                  ItemsSource="{Binding DataContext.Selection, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}" 
+                                  DisplayMemberPath="Name"
+                                  SelectedValuePath="Id"
+                                  Margin="5,0,0,0" 
+                                  Width="50"
+                                  />
+                        <Button Content="Del" 
+                                Command="{Binding DataContext.RemoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListBox}}}" 
+                                CommandParameter="{Binding}"
+                                Margin="5,0,0,0" 
+                                Padding="5,0,5,0"
+                                />
+                        <Button Content="Show" 
+                                Margin="5,0,0,0"
+                                Padding="5,0,5,0"
+                                />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
 </Window>
