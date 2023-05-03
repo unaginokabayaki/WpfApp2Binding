@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2.Model"
+        xmlns:local2="clr-namespace:WpfApp2.Converter"
         mc:Ignorable="d"
         FocusManager.FocusedElement="{Binding ElementName=InputTextBox}"
         Title="MainWindow" Height="450" Width="800">
@@ -12,9 +13,10 @@
     </Window.DataContext>-->
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVisible" />
+        <local2:InverseBoolToVisibilityConverter x:Key="InverseVisibility" />
     </Window.Resources>
     <DockPanel>
-        <CheckBox Content="Hide" 
+        <CheckBox Content="表示" 
                       DockPanel.Dock="Top" 
                       IsChecked="{Binding IsChecked, Mode=OneWayToSource}"
                       Width="100"
@@ -22,7 +24,7 @@
         <StackPanel Orientation="Horizontal" 
                     DockPanel.Dock="Top" 
                     Margin="10"
-                    Visibility="{Binding IsChecked, Mode=OneWay, Converter={StaticResource BoolToVisible}}"
+                    Visibility="{Binding IsChecked, Mode=OneWay, Converter={StaticResource InverseVisibility}}"
                     >
             <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
                      Height="25" Width="100" 
