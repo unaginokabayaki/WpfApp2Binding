@@ -10,15 +10,19 @@
     <!--<Window.DataContext>
         <local:MainViewModel />
     </Window.DataContext>-->
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisible" />
+    </Window.Resources>
     <DockPanel>
-        <ToggleButton Content="Hide" 
+        <CheckBox Content="Hide" 
                       DockPanel.Dock="Top" 
                       IsChecked="{Binding IsChecked, Mode=OneWayToSource}"
-                      />
+                      Width="100"
+                  />
         <StackPanel Orientation="Horizontal" 
                     DockPanel.Dock="Top" 
                     Margin="10"
-                    Visibility="{Binding IsCheckVisiblity, Mode=OneWay}"
+                    Visibility="{Binding IsChecked, Mode=OneWay, Converter={StaticResource BoolToVisible}}"
                     >
             <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
                      Height="25" Width="100" 

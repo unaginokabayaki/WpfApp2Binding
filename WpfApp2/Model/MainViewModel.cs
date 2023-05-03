@@ -34,10 +34,10 @@ namespace WpfApp2.Model
             get { return _isChecked; }
             set { 
                 _isChecked = value;
-                // プロパティ変更時にコントロールを変更する場合
-                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsChecked)));
+                // プロパティ変更時にバインドされているコントロールを変更する（Converterを使う場合もこれが必要）
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsChecked)));
                 // IsCheckVisiblityに変更を通知
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckVisiblity)));
+                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsCheckVisiblity)));
             }
         }
 
