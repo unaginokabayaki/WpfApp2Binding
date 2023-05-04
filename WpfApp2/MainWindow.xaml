@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfApp2.MainWindow"
+﻿<Window xmlns:UserCtrl="clr-namespace:WpfApp2.UserCtrl"  x:Class="WpfApp2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -69,5 +69,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <UserCtrl:UCDockCheckBox CheckBoxComment="ちぇっくこめんと" Margin="10"/>
     </DockPanel>
 </Window>
