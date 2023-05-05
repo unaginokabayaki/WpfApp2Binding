@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel>
         <TextBlock DockPanel.Dock="Left" 
-                   Text="{Binding CheckBoxComment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UCDockCheckBox}}}"
+                   x:Name="CommentTextBlock"
                    />
         <CheckBox />
     </DockPanel>

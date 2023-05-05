@@ -23,6 +23,14 @@ namespace WpfApp2.UserCtrl
         public UCDockCheckBox()
         {
             InitializeComponent();
+
+            // xamlではなくコードでセット
+            // {Binding CheckBoxComment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UCDockCheckBox}}}
+            CommentTextBlock.SetBinding(TextBlock.TextProperty, 
+                new Binding(nameof(CommentTextBlock)) 
+                { 
+                    Source = this, 
+                });
         }
 
 
