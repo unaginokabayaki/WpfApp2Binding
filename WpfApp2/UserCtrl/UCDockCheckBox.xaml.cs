@@ -25,12 +25,13 @@ namespace WpfApp2.UserCtrl
             InitializeComponent();
 
             // xamlではなくコードでセット
+            // TextBlockに追加するプロパティをバインドする
             // {Binding CheckBoxComment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:UCDockCheckBox}}}
             CommentTextBlock.SetBinding(TextBlock.TextProperty, 
-                new Binding(nameof(CommentTextBlock)) 
-                { 
-                    Source = this, 
-                });
+                                        new Binding(nameof(CheckBoxComment)) 
+                                        { 
+                                            Source = this, 
+                                        });
         }
 
 
