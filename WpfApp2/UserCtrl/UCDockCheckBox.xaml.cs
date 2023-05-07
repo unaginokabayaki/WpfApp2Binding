@@ -46,7 +46,5 @@ namespace WpfApp2.UserCtrl
         public static readonly DependencyProperty CheckBoxCommentProperty =
             DependencyProperty.Register("CheckBoxComment", typeof(string), typeof(UCDockCheckBox), new PropertyMetadata(string.Empty));
 
-
-
     }
 }

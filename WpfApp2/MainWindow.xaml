@@ -89,15 +89,19 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <UserCtrl:UCDockCheckBox 
-            CheckBoxComment="ちぇっくこめんと" 
-            Margin="10"/>
-        <TextBlock Text="コンテンツ" 
-                   Style="{StaticResource DefaultTextStyle}" 
-                   Margin="10" Height="30" Width="150"
+        <Expander IsExpanded="{Binding IsExpandedBtns, FallbackValue=True}">
+            <StackPanel>
+                <UserCtrl:UCDockCheckBox 
+                        CheckBoxComment="ちぇっくこめんと" 
+                        Margin="10"/>
+                <TextBlock Text="コンテンツ" 
+                           Style="{StaticResource DefaultTextStyle}" 
+                           Margin="10" Height="30" Width="150"
                    />
-        <Button Content="カラーボタン" 
-                Style="{StaticResource ChangeButtonStyle}"
-                Height="30" Width="150" />
+                <Button Content="カラーボタン" 
+                        Style="{StaticResource ChangeButtonStyle}"
+                        Height="30" Width="150" />
+            </StackPanel>
+        </Expander>
     </DockPanel>
 </Window>

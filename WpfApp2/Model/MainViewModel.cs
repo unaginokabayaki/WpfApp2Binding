@@ -76,6 +76,9 @@ namespace WpfApp2.Model
                 Items.Remove(item);
             });
         }
+
+        // これがないとバインドに失敗するので、FallBackValueが発動する
+        //public bool IsExpandedBtns {  get; set; }
     }
 
     internal class ItemViewModel : INotifyPropertyChanged
